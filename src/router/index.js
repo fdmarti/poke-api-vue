@@ -1,20 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const routes = [
+  { path: '/',name: 'home', component: () => import(/* webpackChunkName: "home" */ '@/views/HomeView.vue') },
+  { path: '/about', name: 'about', component: () => import(/* webpackChunkName: "about" */ '@/views/AboutView.vue') },
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/generation',
+    name: 'generation',
+    component: () => import(/* webpackChunkName: "layout-generacion" */ '@/views/Pokemon/Layout/LayoutPokemon.vue'),
+    children:[
+      { path : ':id', name : 'generation-list-view', component: () => import(/* webpackChunkName: "generation-list" */ '@/views/Pokemon/GenerationView.vue'),}
+    ]
   },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+
+  { path: '/:pathMatch(.*)*', name : '404',component : () => import('@/views/PageNotFound.vue')},
+
 ]
 
 const router = createRouter({
