@@ -7,9 +7,14 @@
           <i class='bx bx-color bx-md p-5'></i>
         </router-link>
         
-        <router-link class="flex items-center" to="/about">
+        <router-link class="flex items-center hover:text-black" to="/about">
           <i class='bx bx-info-circle cursor-pointer bx-sm'></i> <span v-if="navbarSort" class="ml-2">About</span>
         </router-link>
+
+        <a href="https://github.com/fdmarti/poke-api-vue" target="_blanck" class="p-5 flex items-center hover:text-black"> 
+          <i class='bx bxl-github cursor-pointer bx-sm'></i> 
+          <span v-if="navbarSort" class="ml-2">Github</span>
+        </a>
 
         <span class="fixed bottom-0">
           <i 
