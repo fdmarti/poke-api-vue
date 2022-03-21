@@ -29,8 +29,6 @@ export default {
     methods: {
         ...mapActions(["getPokemonesByGeneration"]),
         goToDetailsPokemon(namePokemon){
-            console.log(namePokemon)
-
             this.$router.push({name : 'pokemon-detail', params :{ name : namePokemon}})
         }
     },

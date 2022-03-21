@@ -6,7 +6,7 @@
       <SpinnerLoad />
     </section>
 
-    <section class="grid grid-cols-2 mt-10 place-items-center border-2 rounded-lg bg-orange-100 shadow" v-else>
+    <section class="grid grid-cols-2 mt-10 place-items-center p-10 border-x-2 rounded-lg bg-orange-100 shadow" v-else>
       <div class="p-5">
         <img :src="pokemonData.sprites.other.dream_world.front_default" :alt="`${$route.params.name}_img`">
 
