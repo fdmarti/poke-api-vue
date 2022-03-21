@@ -6,9 +6,20 @@ const routes = [
   {
     path: '/generation',
     name: 'generation',
-    component: () => import(/* webpackChunkName: "layout-generacion" */ '@/views/Pokemon/Layout/LayoutPokemon.vue'),
+    component: () => import(/* webpackChunkName: "layout-generacion" */ '@/modules/Pokemon/Layout/LayoutGeneration.vue'),
     children:[
-      { path : ':id', name : 'generation-list-view', component: () => import(/* webpackChunkName: "generation-list" */ '@/views/Pokemon/GenerationView.vue'),}
+      { 
+        path : ':id',
+        name : 'generation-list-view',
+        component: () => import(/* webpackChunkName: "generation-list" */ '@/modules/Pokemon/views/GenerationView.vue'),
+        children:[
+          { 
+            path: ':name',
+            name : 'pokemon-detail',
+            component: () => import(/* webpackChunkName: "pokemon-detail" */ '@/modules/Pokemon/views/PokemonDetail.vue') 
+          }
+        ]  
+      },
     ]
   },
 

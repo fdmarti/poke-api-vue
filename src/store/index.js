@@ -54,13 +54,23 @@ export default createStore({
     async getPokemonDataByUrl(context,name){
       const { data } = await pokeApi.get(`/pokemon/${name}`)
       return data
+    },
 
-    }
+    async getPokemonDataByName({commit},name){
+      const { data } = await pokeApi.get(`/pokemon/${name}`)
+      commit('setPokemonData',data)
+    },
+
+
   },
 
   getters: {
     getPokemones(state){
       return state.pokemones
+    },
+
+    pokemonData(state){
+      return state.pokemon
     }
   },
 })
